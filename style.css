@@ -1,0 +1,328 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    color: #fff;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(125deg, #0f0c29 0%, #302b63 30%, #24243e 70%);
+    z-index: -1;
+}
+
+.background-animation::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 15% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(73, 63, 252, 0.3) 0%, transparent 25%),
+        radial-gradient(circle at 50% 80%, rgba(71, 39, 176, 0.3) 0%, transparent 25%);
+    animation: pulse 15s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.8; }
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    z-index: 1;
+}
+
+header {
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    background: linear-gradient(90deg, #ff7eee, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+header p {
+    color: #d4d4fc;
+    font-size: 1rem;
+}
+
+.main-content {
+    position: relative;
+    height: 400px;
+    margin-bottom: 30px;
+}
+
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s;
+}
+
+.screen.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.voice-selection {
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.voice-selection h3 {
+    margin-bottom: 15px;
+    color: #d4d4fc;
+    font-weight: 500;
+}
+
+.voice-options {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.voice-option {
+    background: rgba(30, 30, 60, 0.7);
+    padding: 15px 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    width: 120px;
+}
+
+.voice-option:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.voice-option.active {
+    border-color: #8b5cf6;
+    background: rgba(59, 39, 123, 0.5);
+}
+
+.voice-option i {
+    font-size: 2rem;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.voice-option span {
+    font-size: 0.9rem;
+    color: #e0e0ff;
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, #8b5cf6, #6d28d9);
+    color: white;
+    border: none;
+    padding: 16px 32px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.5);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(139, 92, 246, 0.7);
+}
+
+.voice-indicator {
+    margin-bottom: 15px;
+    background: rgba(30, 30, 60, 0.5);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: #a5a5d6;
+}
+
+.chat-container {
+    background: rgba(30, 30, 60, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.ai-avatar {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    color: #8b5cf6;
+}
+
+.wave-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    gap: 4px;
+    margin-bottom: 20px;
+}
+
+.wave-bar {
+    width: 6px;
+    height: 20px;
+    background: linear-gradient(to top, #8b5cf6, #6d28d9);
+    border-radius: 3px;
+    animation: wave 1.2s infinite ease-in-out;
+}
+
+.wave-bar:nth-child(2) { animation-delay: 0.1s; }
+.wave-bar:nth-child(3) { animation-delay: 0.2s; }
+.wave-bar:nth-child(4) { animation-delay: 0.3s; }
+.wave-bar:nth-child(5) { animation-delay: 0.4s; }
+
+@keyframes wave {
+    0%, 100% { transform: scaleY(0.5); }
+    50% { transform: scaleY(1.5); }
+}
+
+.response-text p {
+    font-size: 1.1rem;
+    color: #e0e0ff;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.btn-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+#close-btn {
+    background: rgba(239, 68, 68, 0.9);
+    color: white;
+}
+
+#stop-btn {
+    background: rgba(139, 92, 246, 0.9);
+    color: white;
+}
+
+.btn-icon:hover {
+    transform: scale(1.1);
+}
+
+footer {
+    margin-top: 20px;
+}
+
+footer p {
+    color: #a5a5d6;
+    font-size: 0.9rem;
+}
+
+footer span {
+    color: #8b5cf6;
+    font-weight: 600;
+}
+
+/* Responsiveness */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .voice-options {
+        gap: 15px;
+    }
+    
+    .voice-option {
+        width: 100px;
+        padding: 12px 15px;
+    }
+    
+    .btn-primary {
+        padding: 14px 28px;
+        font-size: 1rem;
+    }
+    
+    .ai-avatar {
+        font-size: 3.5rem;
+    }
+    
+    .chat-container {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 400px) {
+    header h1 {
+        font-size: 1.6rem;
+    }
+    
+    header p {
+        font-size: 0.9rem;
+    }
+    
+    .main-content {
+        height: 380px;
+    }
+    
+    .voice-options {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .voice-option {
+        width: 80%;
+        max-width: 200px;
+    }
+    
+    .btn-primary {
+        padding: 12px 24px;
+    }
+}
