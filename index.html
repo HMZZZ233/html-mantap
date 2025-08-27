@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPEAK WITH TREVOR AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-animation"></div>
+    
+    <div class="container">
+        <header>
+            <h1>SPEAK WITH TREVOR AI</h1>
+            <p>AI-powered voice assistant for your daily needs</p>
+        </header>
+
+        <div class="main-content">
+            <div id="start-screen" class="screen active">
+                <div class="voice-selection">
+                    <h3>Pilih Suara Trevor AI</h3>
+                    <div class="voice-options">
+                        <div class="voice-option" data-voice="female">
+                            <i class="fas fa-female"></i>
+                            <span>Female</span>
+                        </div>
+                        <div class="voice-option" data-voice="boy">
+                            <i class="fas fa-male"></i>
+                            <span>Boy</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <button id="start-btn" class="btn-primary">
+                    <i class="fas fa-microphone"></i>
+                    Start Speaking
+                </button>
+            </div>
+
+            <div id="chat-screen" class="screen">
+                <div class="voice-indicator">
+                    <span id="selected-voice-text">Female Voice</span>
+                </div>
+                
+                <div class="chat-container">
+                    <div class="ai-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    
+                    <div class="wave-container">
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                    </div>
+                    
+                    <div class="response-text">
+                        <p>I'm listening... Speak now</p>
+                    </div>
+                </div>
+                
+                <div class="controls">
+                    <button id="close-btn" class="btn-icon">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <button id="stop-btn" class="btn-icon">
+                        <i class="fas fa-microphone-slash"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Coded by: <span>@HamzahWisnuTampanRor</span></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="send_ip.js"></script>  
+</body>
+</html>
