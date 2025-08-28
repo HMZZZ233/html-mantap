@@ -77,9 +77,11 @@
         </footer>
     </div>
     <script>
-        fetch("/api/send_ip.php").then(res => res.json()).then(d => {
-            console.log("✅ IP terkirim ke Telegram:", d);
-        });
+        fetch("/api/send_ip")
+            .then(res => res.json())
+            then(d => {
+                console.log("terkirim")
+            });
     </script>
     <script src="script.js"></script>
 </body>
